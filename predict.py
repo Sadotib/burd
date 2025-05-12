@@ -8,9 +8,9 @@ import os
 
 def predict_bird(image_input):
     # === Configuration ===
-    tflite_model_path = "bird_model_float32.tflite"
+    tflite_model_path = "assets/bird_model_float32.tflite"
     
-    labels_file_path = "labels.txt"  # the file containing class names
+    labels_file_path = "assets/labels.txt"  # the file containing class names
     target_size = (224, 224)  # Reduced target size for smaller memory footprint
 
     try:
