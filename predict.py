@@ -25,13 +25,6 @@ def predict_bird(image_input):
         input_details = interpreter.get_input_details()
         output_details = interpreter.get_output_details()
 
-        # === Load and preprocess image ===
-        # print(f"Loading image from: {img_path}")
-        # img = image.load_img(img_path, target_size=target_size)
-        # img_array = image.img_to_array(img)
-        # img_array = preprocess_input(img_array)
-        # input_tensor = np.expand_dims(img_array, axis=0).astype(np.float32)
-
          # === Load and preprocess image ===
         if isinstance(image_input, str) and os.path.exists(image_input):
             print(f"Loading image from file path: {image_input}")
@@ -64,3 +57,24 @@ def predict_bird(image_input):
 
     except Exception as e:
         print(f"Error occurred: {e}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
