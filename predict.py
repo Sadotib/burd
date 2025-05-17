@@ -6,11 +6,9 @@ from PIL import Image
 import io
 import os
 
-def predict_bird(image_input):
+def predict_bird(image_input, interpreter, labels_file_path):
     # === Configuration ===
-    tflite_model_path = "assets/bird_model_float32.tflite"
     
-    labels_file_path = "assets/labels.txt"  # the file containing class names
     target_size = (224, 224)  # Reduced target size for smaller memory footprint
 
     try:
@@ -19,9 +17,9 @@ def predict_bird(image_input):
             class_names = [line.strip() for line in f.readlines()]
 
         # === Load TFLite model ===
-        print("Loading TFLite model...")
-        interpreter = tf.lite.Interpreter(model_path=tflite_model_path)
-        interpreter.allocate_tensors()
+        # print("Loading TFLite model...")
+        # interpreter = tf.lite.Interpreter(model_path=tflite_model_path)
+        # interpreter.allocate_tensors()
         input_details = interpreter.get_input_details()
         output_details = interpreter.get_output_details()
 

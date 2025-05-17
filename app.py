@@ -1,5 +1,9 @@
 from flask import Flask, request, jsonify
 from predict import predict_bird
+import tensorflow as tf
+import numpy as np
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.efficientnet import preprocess_input
 
 app = Flask(__name__)
 
@@ -13,11 +17,20 @@ def predict():
         return jsonify({'error': 'No image file part in the request'}), 400
 
     file = request.files['image']
+
+    # === Load TFLite model ===
+    print("Loading TFLite model...")
+
+    tflite_model_path = "assets/bird_model_float32.tflite"
+    
+    labels_file_path = "assets/labels.txt"  # the file containing class names
+    interpreter = tf.lite.Interpreter(model_path=tflite_model_path)
+    interpreter.allocate_tensors()
     if file.filename == '':
         return jsonify({'error': 'No file selected'}), 400
 
     try:
-        prediction, confidence = predict_bird(file)  # pass file-like object
+        prediction, confidence = predict_bird(file, interpreter, labels_file_path)  # pass file-like object
         print("this is prediction: ",prediction,"and this is conf: ",type(confidence))
         return jsonify({
         'prediction': prediction,
