@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 # burd
 =======
-# turd
 
 A new Flutter project.
 
