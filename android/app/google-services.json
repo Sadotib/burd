@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "686889998951",
+    "project_id": "turd-aed2e",
+    "storage_bucket": "turd-aed2e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686889998951:android:1587db0581a868b667d2c2",
+        "android_client_info": {
+          "package_name": "com.example.turd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHn0-0K_Fpn2Eus_GlEyfegpkHWeD3EwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
